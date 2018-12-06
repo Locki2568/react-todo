@@ -7,7 +7,6 @@ export default class TodoInput extends Component {
     input.value = ''
   }
   
-
   render() {
     return (
       <div>

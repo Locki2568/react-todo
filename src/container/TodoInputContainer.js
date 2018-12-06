@@ -25,7 +25,6 @@ const mapDispatchToProps = (dispatch) => ({
                 content:res.content
             }
         }))
-      
     }
   })
   

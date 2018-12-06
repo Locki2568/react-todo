@@ -5,13 +5,24 @@ export default class Todos extends Component {
     const {todos} = this.props
     return (
       <div>
-        {todos.map((todo, i) => {
+        { todos.filter(todo =>{
+          if(todo.status === "active" && this.props.isCompleted)
+            return false
+          return true
+          })
+          .map((todo, i) => {
           if(todo.status ==="completed"){
-            return <li onClick={() => this.props.handleClick(todo)} style={{ textDecorationLine: 'line-through' }} key={i}>{todo.content}</li>
+            return <li onClick={() => this.props.handleClick(todo)} 
+            style={{ textDecorationLine: 'line-through' }} key={i}>
+            {todo.content}
+            </li>
           }
-          else
-            return <li onClick={() => this.props.handleClick(todo)} key={i}>{todo.content}</li>
+          else{
+            return <li onClick={() => this.props.handleClick(todo)} key={i}>{todo.content}
+            </li>
+          }
           })}
+          
       </div>
     )
   }
